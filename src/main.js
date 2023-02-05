@@ -1,6 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { App } from "./app";
 import "./style/main.scss";
+import { ConnectionTest } from "./python";
 
-ReactDOM.render(<App />, document.getElementById("main"));
+// Test eel
+window.onload = async () => {
+  let print = await ConnectionTest();
+  console.log(print);
+};
+
+const root = createRoot(document.getElementById("main"));
+root.render(<App />);
